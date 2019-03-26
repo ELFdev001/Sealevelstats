@@ -24,7 +24,7 @@ int main(int argc, char**argv)
     isRunning = true;
 
 
-    ticker = new Ticker(1, 0, 63420000);
+    ticker = new Ticker(1, -88.3, 63420000);
 
     while (isRunning) {
           isRunning = ticker->newTick();

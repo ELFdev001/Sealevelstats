@@ -22,6 +22,7 @@ public:
   int getMonth();
   int getYear();
   int getTick();
+  int getTickHrs();
   bool newTick();
   std::string getHrStr();
   std::string getDayStr();

@@ -36,6 +36,11 @@ int Ticker::getDay()
   return day;
 }
 
+int Ticker::getTickHrs()
+{
+  return tickhrs;
+}
+
 int Ticker::getMonth()
 {
   int runtot = 0;

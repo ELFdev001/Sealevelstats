@@ -36,13 +36,16 @@ float selleff = 0;
 float luneff = 0;
 ofstream out("out.txt");
 
+//float spotheight = -21.5;
+//int prevyr = -99999;
+//int yrhrs = 0;
+
 Water::Water()
 {
 	out << "Hour,Day,Year,waterHeight,baseWaterHeight,lunar,luneff,solar,soleff,atmeffect,windeffect,windspd" << endl;
-
+//	out << "Year,Hours underwater for point," << spotheight << "m" <<endl;
 	waterHeight = 0;
 	atmospress = 1013;
-	waterHeightAdj = 0;
 }
 
 /******************************** methods ********************************/
@@ -129,6 +132,22 @@ void Water::render(Ticker &tick)
 	waterHeight = tick.getWaterHeight() + lunar + solar + atmeffect + windeffect;
 
 	out << tick.getHrStr() << "," << tick.getDayStr() << "," << tick.getYrStr() << "," << waterHeight << "," << tick.getWaterHeight() << "," << lunar << "," << luneff << "," << solar << "," << selleff << "," << atmeffect << "," << windeffect << "," << windspd << endl;
+
+/*
+	if (waterHeight > spotheight)
+	{
+		yrhrs = yrhrs + tick.getTickHrs();
+	}
+
+	if (tick.getYear() != prevyr)
+	{
+		out << tick.getYrStr() << "," << yrhrs << endl;
+		yrhrs = 0;
+		prevyr = tick.getYear();
+	}
+	*/
+
+
 	/*
 	cout << "Tick is " << tick.getTick() << ": Lunar component is " << lunar << " and Solar component is " << solar << endl;
 	cout << " atmospheric pressure is " << atmospress << ", change is " << atm << " and windspeed is " << windspd << " so wind effect is " << windeffect << endl;
